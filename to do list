@@ -1,0 +1,102 @@
+==================================================
+SOUTH CANTEEN FOOD STALL ORDERING SYSTEM
+Python Programming Project - Task Kill List
+EG1P12 - Programming | Effective Date: 20 Apr 2026
+==================================================
+
+PROJECT SUMMARY
+--------------------------------------------------
+A new food stall at South Canteen wants a user-friendly
+online ordering system. Build a Python program that lets
+customers browse the menu, place orders, review/edit them,
+apply NYP student/staff discounts, and print a final
+itemised receipt.
+
+
+CODEBASE KILL LIST
+==================================================
+
+1. MENU SYSTEM
+--------------------------------------------------
+[ ] Store menu items in a data structure (dict or list of dicts) - name, price, category
+[ ] Function to display the menu in a clean, numbered format
+
+2. ORDERING FLOW
+--------------------------------------------------
+[ ] Function to let customer select item(s) + enter quantity
+[ ] Support ordering multiple items within a single transaction (loop until customer says they're done)
+[ ] Store the running order (e.g. list of dicts: item, qty, price)
+
+3. REVIEW / EDIT ORDER
+--------------------------------------------------
+[ ] Function to display the current order so far
+[ ] Let customer change quantity or remove an item before finalising
+
+4. DISCOUNT LOGIC
+--------------------------------------------------
+[ ] Ask customer if they are an NYP student, NYP staff, or neither
+[ ] Apply 10% discount (student) or 5% discount (staff)
+[ ] Dedicated function to calculate discount cleanly
+
+5. BILL CALCULATION
+--------------------------------------------------
+[ ] Subtotal -> apply discount -> final payable amount
+[ ] Function to calculate total, separate from display logic
+
+6. RECEIPT / OUTPUT
+--------------------------------------------------
+[ ] Print a clean, organised receipt: items, qty, price each, subtotal, discount applied, final total
+[ ] Formatting matters here - this is a direct rubric point (accuracy & presentation)
+
+7. MAIN PROGRAM LOOP
+--------------------------------------------------
+[ ] Keep running until customer indicates they're finished ordering
+[ ] Input validation everywhere - no crashing on bad input (letters in number fields, invalid item numbers, etc.)
+
+8. CREATIVE FEATURE (Rubric IV)
+--------------------------------------------------
+[ ] Pick one enhancement once the core program works, e.g.:
+    [ ] Add-on items (saw "Add On" options in the menu photo)
+    [ ] Order history / receipt saved to a .txt file
+    [ ] Timestamp on receipt
+    [ ] Simple ASCII-art header for branding
+
+
+CODE QUALITY CHECKLIST (from rubric)
+==================================================
+[ ] Modularity & Functionality - code organised into reusable functions, each with one clear purpose
+[ ] Data Structures & Handling - suitable use of dicts/lists; data manipulated correctly & efficiently
+[ ] UI & Usability - easy to navigate; clear instructions; input validation & error handling
+[ ] Creativity & Enhancement - at least one creative feature beyond the base requirements
+[ ] Formatting & Documentation - consistent indentation/spacing; comments explaining logic & purpose
+[ ] Accuracy & Correctness - calculations correct; receipt clearly organised and easy to read
+
+
+REPORT KILL LIST
+==================================================
+Format: Times New Roman, size 12, single line spacing.
+One report submitted per team.
+
+I. SYSTEM DESIGN
+--------------------------------------------------
+[ ] Flowchart illustrating the overall program design/logic
+[ ] Explain the programming techniques and algorithms used (functions, loops, dictionaries, validation, etc.)
+
+II. INDIVIDUAL CONTRIBUTIONS
+--------------------------------------------------
+[ ] Clearly describe each team member's specific role and contribution
+
+III. CONCLUSION
+--------------------------------------------------
+[ ] Reflect on the overall experience completing the project
+[ ] Mention challenges faced and lessons learned
+
+
+SUGGESTED DUO SPLIT (discuss & adjust)
+==================================================
+Person A: Menu system, ordering flow, review/edit order, input validation
+Person B: Discount logic, bill calculation, receipt output, creative feature
+Both:     Testing end-to-end, report write-up, flowchart
+
+Tip: lock down the menu data structure first - everything else
+(ordering, discount, receipt) builds directly on top of it.
