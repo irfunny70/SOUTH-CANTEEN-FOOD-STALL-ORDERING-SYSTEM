@@ -18,18 +18,18 @@ CODEBASE KILL LIST
 
 1. MENU SYSTEM
 --------------------------------------------------
-[ ] Store menu items in a data structure (dict or list of dicts) - name, price, category
-[ ] Function to display the menu in a clean, numbered format
+[✔ ] Store menu items in a data structure (dict or list of dicts) - name, price, category
+[✔ ] Function to display the menu in a clean, numbered format
 
 2. ORDERING FLOW
 --------------------------------------------------
-[ ] Function to let customer select item(s) + enter quantity
-[ ] Support ordering multiple items within a single transaction (loop until customer says they're done)
-[ ] Store the running order (e.g. list of dicts: item, qty, price)
+[✔ ] Function to let customer select item(s) + enter quantity
+[✔ ] Support ordering multiple items within a single transaction (loop until customer says they're done)
+[✔ ] Store the running order (e.g. list of dicts: item, qty, price)
 
 3. REVIEW / EDIT ORDER
 --------------------------------------------------
-[ ] Function to display the current order so far
+[✔ ] Function to display the current order so far
 [ ] Let customer change quantity or remove an item before finalising
 
 4. DISCOUNT LOGIC
