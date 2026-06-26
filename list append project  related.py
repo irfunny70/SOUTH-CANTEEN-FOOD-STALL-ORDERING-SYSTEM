@@ -1,11 +1,11 @@
 order = []
 quantity = []
-
+addon = []
 
 while True:
     #Show the menu
     main_dish = [
-        ('01 - Ayam Bakar Set ', "$5.50"),
+        ("01 - Ayam Bakar Set", "$5.50"),
         ("02 - Dori Bakar Set", "$5.90"),
         ("03 - Ayam Bakar Set", "$6.30"),
         ("04 - Gulai Ayam Set", "$6.20"),
@@ -31,47 +31,40 @@ while True:
     for name, cost in items:
         print(f"{name:<52} {cost:>7}")
 
+    # find the order name with code the user input
+    def find_item(code,menu):
+        for name, cost in menu:
+            if name.startswith(code): # e.g input "07" mathc with the menu "07 - Ayam penyet Set(Boneless)", "$6.30"
+                return name, cost
+        return None,None #if not foud
+
     #get input from user
-    item = input("what do you want?")
+    item_code = input("what do you want?")
     qty=int(input("how many do you want?"))
-    add_on = input('Any add-on?').lower()
+    add_on_code = input('Any add-on?(enter or leave blank)').upper()
+
+    #look for item details
+    dish_name,dish_price = find_item(item_code,main_dish)
+    add_on_name,add_on_price = find_item(add_on_code,items) if add_on_code else (None,None)
 
     #update our list
-    order.append(item,add_on)
+    order.append(dish_name)
+    addon.append(add_on_name)
     quantity.append(qty)
 
     #Display current order
-    print(f"you have ordered {order},{quantity}")
+    print("\n ====== Order ======          ==== Qty ====")
+    for i in range(len(order)):
+        print(f"{order[i]:<35} {quantity[i]}")
+
+    print('\n====== Add on ======')
+    for i in range(len(addon)):
+        if addon[i]: #only appear if they pic an addon
+            print(f"{addon[i]:<35} x1")
+    # i want to add ask user if they want change quantity or remove an item before finalising
+
+    #
+    #continue shopping(last part in the code)
     conti=input("continue shopping?").lower()
     if conti!="y":
         break
-
-
-
-
-# this is a clue for the project but i javent integrate it yet to top half
-print(order, quantity)
-# calculation part
-price= {'01':5.80, '02':5.90, '03':6.30, '04':6.20}
-#this is to show the price of each item
-# for i in order:
-#     print(i,price[i])
-
-amount = []
-for i in range(0,len(quantity)):
-    print(f"{order[i]}, {quantity[i]},{price[order[i]]},${quantity[i]*price[order[i]]:.2f}")
-    amount.append(round(quantity[i]*price[order[i]],2))
-print(amount)
-#
-#
-def sum(a):
-    sum=0
-    for i in range(len(a)):
-        sum+=a[i]
-        # sum = sum+a[i] same meaning same same
-    return sum
-print(f'sum of {sum(amount):.2f}')
-
-# need to add modfying fuctiontion like if the person wat to make changes to the order or change the quantity the code need to see what to delete form the list
-stu= input("Are you a student(y/n)?").lower()
-staff = input("Are you a staff(y/n)?").lower()
