@@ -1,6 +1,12 @@
 order = []
 quantity = []
-
+price = {
+    # Main Dishes
+    '01': 5.50, '02': 5.90, '03': 6.30, '04': 6.20,
+    '05': 5.80, '06': 5.90, '07': 6.30, '08': 5.60,
+    # Add-ons
+    'A1': 0.50, 'A2': 0.80, 'A3': 0.50, 'A4': 3.50, 'A5': 3.50, 'A6': 1.50
+}
 
 while True:
     #Show the menu
@@ -28,28 +34,44 @@ while True:
         ("A5 - Fried/Grilled chicken leg quarter (per piece)", "$3.50"),
         ("A6 - Fried Chicken Wing (1pc)", "$1.50"),
     ]
+
     for name, cost in items:
         print(f"{name:<52} {cost:>7}")
-
-    #get input from user
-    item = input("what do you want?")
-    qty=int(input("how many do you want?"))
-    add_on = input('Any add-on?').lower()
-
+    # get input from user
+    items=input("\nWhat main dish do you want?")
+    if items in price:
+        qty=int(input("how many do you want?"))
+        order.append(items)
+        quantity.append(qty)
+        print(f"Added Main Dish {items} x{qty}")
+    else:
+        print("Invalid")
     #update our list
-    order.append(item,add_on)
-    quantity.append(qty)
-
+    add_on=input("Do you want an add-on? (y/n): ").lower()
+    if add_on=="y":
+        addon_choice=input("Enter add-on").lower()
+        if add_on in price:
+            addon_qty=int(input("how many add-ons do you want?"))
+        order.append(addon_choice)
+        quantity.append(addon_qty)
+        print(f"Added Add-on {addon_choice.upper()} x{addon_qty}")
+    else:
+        print("Invalid add-on")
     #Display current order
-    print(f"you have ordered {order},{quantity}")
-    conti=input("continue shopping?").lower()
-    if conti!="y":
+    print(f"\nCurrent Cart: Items: {order} | Quantities: {quantity}")
+
+    conti=input("Continue shopping? (y/n): ").lower()
+    if conti !="y":
         break
+print("\n==============================================")
+print("                    RECEIPT                   ")
+print("==============================================")
 
 
 
 
-# this is a clue for the project but i javent integrate it yet to top half
+
+# this is a clue for the project but i havent integrate it yet to top half
 print(order, quantity)
 # calculation part
 price= {'01':5.80, '02':5.90, '03':6.30, '04':6.20}
@@ -68,10 +90,10 @@ def sum(a):
     sum=0
     for i in range(len(a)):
         sum+=a[i]
-        # sum = sum+a[i] same meaning same same
+        # sum = sum+a[i] same meaning same
     return sum
 print(f'sum of {sum(amount):.2f}')
 
-# need to add modfying fuctiontion like if the person wat to make changes to the order or change the quantity the code need to see what to delete form the list
+# need to add modfying fuctiontion like if the person want to make changes to the order or change the quantity the code need to see what to delete form the list
 stu= input("Are you a student(y/n)?").lower()
 staff = input("Are you a staff(y/n)?").lower()
