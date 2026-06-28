@@ -30,7 +30,7 @@ CODEBASE KILL LIST
 3. REVIEW / EDIT ORDER
 --------------------------------------------------
 [✔ ] Function to display the current order so far
-[ ] Let customer change quantity or remove an item before finalising
+[✔ ] Let customer change quantity or remove an item before finalising
 
 4. DISCOUNT LOGIC
 --------------------------------------------------
