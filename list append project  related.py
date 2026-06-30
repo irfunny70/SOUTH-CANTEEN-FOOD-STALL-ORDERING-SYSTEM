@@ -1,10 +1,10 @@
-#test comit
 order = []
 quantity = []
 addon = []
 
 while True:
     #Show the menu
+
     main_dish = [
         ("01 - Ayam Bakar Set(grilled chicken set)", "$5.50"),
         ("02 - Dori Bakar Set(grilled Dori set)", "$5.90"),
@@ -15,7 +15,6 @@ while True:
         ("07 - Ayam penyet Set(Fried Boneless chicken set)", "$6.30"),
         ("08 - Ayam penyet Set(Fried chicken Wing set)", "$5.60"),
     ]
-
     print(f"===== Penyet + BBQ SET MEAL=====")
     for name, cost in main_dish:
         print(f"{name:<52} {cost:>7}")
@@ -39,14 +38,27 @@ while True:
                 return name, cost
         return None,None #if not foud
 
-    #get input from user
-    item_code = input("\nwhat do you want?")#i wanna make it to where even if user put 1 it can still detect
-    qty=int(input("how many do you want?"))
-    add_on_code = input('Any add-on?(enter or leave blank)').upper()
+    #get input from user for dishes and ask till get correct code
+    while True:
+        item_code = input("\nwhat do you want?")#i wanna make it to where even if user put 1 it can still detect
+        # look for item details
+        dish_name, dish_price = find_item(item_code, main_dish)
+        if dish_name:
+            break
+        print('Please choose correct option')
+    #input qty
+    qty = int(input("how many do you want?"))
 
-    #look for item details
-    dish_name,dish_price = find_item(item_code,main_dish)
-    add_on_name,add_on_price = find_item(add_on_code,items) if add_on_code else (None,None)
+    #addon is optional but input must be valid if they wnat something
+    while True:
+        addon_code = input("Any add-on?(add code or leave blank)").upper()
+        if addon_code =="":
+            add_on_name, add_on_price = None,None
+            break
+        add_on_name, add_on_price = find_item(addon_code, items)
+        if add_on_name:
+            break
+        print("Please choose correct option")
 
     #update our list
     order.append(dish_name)
