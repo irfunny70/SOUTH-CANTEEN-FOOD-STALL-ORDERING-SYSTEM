@@ -1,15 +1,9 @@
 order = []
 quantity = []
 addon = []
-price = {
-    # Main Dishes
-    '01': 5.50, '02': 5.90, '03': 6.30, '04': 6.20,
-    '05': 5.80, '06': 5.90, '07': 6.30, '08': 5.60,
-    # Add-ons
-    'a1': 0.50, 'a2': 0.80, 'a3': 0.50, 'a4': 3.50, 'a5': 3.50, 'a6': 1.50}
+
 while True:
     #Show the menu
-
     main_dish = [
         ("01 - Ayam Bakar Set(grilled chicken set)", "$5.50"),
         ("02 - Dori Bakar Set(grilled Dori set)", "$5.90"),
@@ -35,6 +29,13 @@ while True:
     ]
     for name, cost in items:
         print(f"{name:<52} {cost:>7}")
+
+    price = {
+    # Main Dishes
+    '01': 5.50, '02': 5.90, '03': 6.30, '04': 6.20,
+    '05': 5.80, '06': 5.90, '07': 6.30, '08': 5.60,
+    # Add-ons
+    'a1': 0.50, 'a2': 0.80, 'a3': 0.50, 'a4': 3.50, 'a5': 3.50, 'a6': 1.50}
 
     # find the order name with code the user input
     def find_item(code,menu):
