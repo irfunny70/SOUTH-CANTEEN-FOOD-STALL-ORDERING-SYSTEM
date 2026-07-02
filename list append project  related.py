@@ -139,7 +139,7 @@ for i in range(len(order)):
     subtotal += line_total
 
     display_code = item_code.upper()
-    print(f"Item [{display_code}]  x{item_qty:<3} @ ${item_u
+    print(f"Item [{display_code}]  x{item_qty:<3} @ ${item_unit_price}
 print("----------------------------------------------")
 print(f"Total Discount:                      -${discount_amount:.2f}")
 print(f"GRAND TOTAL DUE:                      ${grand_total:.2f}")
