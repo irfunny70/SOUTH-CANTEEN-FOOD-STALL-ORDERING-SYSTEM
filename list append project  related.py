@@ -109,15 +109,37 @@ while True:
             print("Add-on updated.")
 
     #discount logic
-    # stu= input("Are you a student(y/n)?").lower()
-    # staff = input("Are you a staff(y/n)?").lower()
-    # if stu == 'y':
-    #     print("you are eligible for a 10% discount")
-    # elif staff == 'y':
-    #     print("you are eligible for a 5% discount")
-    #bill calculation
+    discount_percentage = 0.0
+    stu = input("\nAre you a student (y/n)? ").lower()
+    staff = input("Are you a staff (y/n)? ").lower()
+    if stu == 'y':
+    discount_percentage = 0.10  # 10% Student Discount
+    print("Student Discount Applied (10%)")
+elif staff == 'y':
+    discount_percentage = 0.15  # 15% Staff Discount
+    print("Staff Discount Applied (15%)")
+discount_amount = subtotal * discount_percentage
+grand_total = subtotal - discount_amount
+print("\n==============================================")
+print("               FINAL RECEIPT                  ")
+print("==============================================")
 
-    #continue shopping(last part in the code)
-    conti=input("continue shopping? (y/n)").lower()
-    if conti != "y":
-        break
+subtotal = 0.0
+for i in range(len(order)):
+    item_code = order[i]
+    item_qty = quantity[i]
+    item_unit_price = price[item_code]
+    line_total = item_qty * item_unit_price
+    subtotal += line_total
+
+    display_code = item_code.upper()
+    print(f"Item [{display_code}]  x{item_qty:<3} @ ${item_u
+print("----------------------------------------------")
+print(f"Total Discount:                      -${discount_amount:.2f}")
+print(f"GRAND TOTAL DUE:                      ${grand_total:.2f}")
+print("==============================================")
+
+#continue shopping(last part in the code)
+conti=input("continue shopping? (y/n)").lower()
+if conti != "y":
+    break
